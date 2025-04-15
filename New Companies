@@ -1,0 +1,13 @@
+select
+c.company_code,
+c.founder,
+count(distinct lead_manager_code) as lead_managers,
+count(distinct senior_manager_code) as senior_managers,
+count(distinct manager_code) as managers,
+count(distinct employee_code) as employees
+from 
+company c
+join employee e
+on c.company_code=e.company_code
+group by 1,2
+order by 1
