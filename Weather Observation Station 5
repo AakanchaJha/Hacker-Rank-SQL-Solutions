@@ -1,0 +1,13 @@
+(SELECT
+city,
+length(city) as length_city
+from station
+order by length_city asc, city asc
+limit 1)
+union
+(select
+city,
+length(city) as length_city
+from station
+order by length_city desc, city asc
+limit 1)
