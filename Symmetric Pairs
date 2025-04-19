@@ -1,0 +1,12 @@
+with base as (
+select row_number() over (order by x,y) as rank_function,
+X,
+Y
+from functions
+)
+select
+b1.X as X1,
+b1.Y as Y1
+from base b1 join base b2 
+on b1.X=b2.Y and b2.X=b1.Y and b1.rank_function<b2.rank_function
+order by X1
