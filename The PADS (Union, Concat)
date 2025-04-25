@@ -1,7 +1,7 @@
 select
 concat(Name, '(',left(occupation,1), ')' ) as column1
 from occupations
-order by column1;
+union
 select
 concat('There are a total of', ' ',count(*), ' ',lower(occupation),'s', '.') as column1
 from occupations
